@@ -15,11 +15,20 @@
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.293" />
         <entry key="app/src/main/res/layout/activity_patient_nav.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/layout/app_bar_patient_nav.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/content_admin.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/layout/content_patient_nav.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/fragment_appointment_admin.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/fragment_consultation_admin.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/fragment_help.xml" value="0.290625" />
         <entry key="app/src/main/res/layout/fragment_hospital.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/fragment_patient_admin.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/fragment_patient_inscription.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/fragment_patients.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/nav_header_admin.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/layout/nav_header_patient_nav.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/menu/admin.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/menu/patient_nav.xml" value="0.31145833333333334" />
       </map>
     </option>

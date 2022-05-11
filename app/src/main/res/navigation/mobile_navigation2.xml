@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/mobile_navigation2"
     app:startDestination="@+id/nav_home">
 
     <fragment
@@ -12,16 +12,22 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/nav_patient"
+        android:name="com.android.medicheck.admin.PatientAdminFragment"
+        android:label="@string/patient"
+        tools:layout="@layout/fragment_patient_admin" />
+
+    <fragment
         android:id="@+id/nav_consultation"
-        android:name="com.android.medicheck.patient.ConsultationFragment"
+        android:name="com.android.medicheck.admin.ConsultationAdminFragment"
         android:label="@string/consultation"
-        tools:layout="@layout/fragment_consultation" />
+        tools:layout="@layout/fragment_consultation_admin" />
 
     <fragment
         android:id="@+id/nav_appointment"
-        android:name="com.android.medicheck.patient.AppointmentFragment"
+        android:name="com.android.medicheck.admin.AppointmentAdminFragment"
         android:label="@string/appointment"
-        tools:layout="@layout/fragment_appointment" />
+        tools:layout="@layout/fragment_appointment_admin" />
 
     <fragment
         android:id="@+id/nav_hospital"

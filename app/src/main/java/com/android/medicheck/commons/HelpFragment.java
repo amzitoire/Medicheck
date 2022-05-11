@@ -1,4 +1,4 @@
-package com.android.medicheck.patient;
+package com.android.medicheck.commons;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.android.medicheck.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PatientsFragment#newInstance} factory method to
+ * Use the {@link HelpFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PatientsFragment extends Fragment {
+public class HelpFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class PatientsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public PatientsFragment() {
+    public HelpFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class PatientsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PatientsFragment.
+     * @return A new instance of fragment HelpFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PatientsFragment newInstance(String param1, String param2) {
-        PatientsFragment fragment = new PatientsFragment();
+    public static HelpFragment newInstance(String param1, String param2) {
+        HelpFragment fragment = new HelpFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class PatientsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_patients, container, false);
+        return inflater.inflate(R.layout.fragment_help, container, false);
     }
 }

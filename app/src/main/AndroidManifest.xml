@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_logo_app_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Medicheck">
-
+        <activity
+            android:name=".admin.AdminActivity"
+            android:exported="false"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/Theme.Medicheck.NoActionBar" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

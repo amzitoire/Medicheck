@@ -1,11 +1,11 @@
-package com.android.medicheck.patient;
+package com.android.medicheck.admin;
 
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
 import com.android.medicheck.R;
-import com.android.medicheck.databinding.ActivityPatientNavBinding;
+import com.android.medicheck.databinding.ActivityAdminBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -16,22 +16,22 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.medicheck.databinding.ActivityPatientNavBinding;
+import com.android.medicheck.databinding.ActivityAdminBinding;
 
-public class PatientNavActivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityPatientNavBinding binding;
+    private ActivityAdminBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityPatientNavBinding.inflate(getLayoutInflater());
+        binding = ActivityAdminBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.appBarPatientNav.toolbar);
-        binding.appBarPatientNav.fab.setOnClickListener(new View.OnClickListener() {
+        setSupportActionBar(binding.appBarAdmin.toolbar);
+        binding.appBarAdmin.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -43,10 +43,10 @@ public class PatientNavActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_consultation, R.id.nav_appointment,R.id.nav_hospital,R.id.nav_help)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_patient_nav);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_admin);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
@@ -54,13 +54,13 @@ public class PatientNavActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.patient_nav, menu);
+        getMenuInflater().inflate(R.menu.admin, menu);
         return true;
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_patient_nav);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_admin);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }

@@ -1,4 +1,4 @@
-package com.android.medicheck.patient;
+package com.android.medicheck.commons;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
