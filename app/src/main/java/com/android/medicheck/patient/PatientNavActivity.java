@@ -1,9 +1,12 @@
 package com.android.medicheck.patient;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 
+import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
 import com.android.medicheck.databinding.ActivityPatientNavBinding;
 import com.google.android.material.snackbar.Snackbar;
@@ -16,16 +19,17 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.medicheck.databinding.ActivityPatientNavBinding;
-
 public class PatientNavActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityPatientNavBinding binding;
 
+    private Button btnLogout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         binding = ActivityPatientNavBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

@@ -11,9 +11,11 @@ import android.widget.Toast;
 
 import com.android.medicheck.patient.PatientNavActivity;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -24,7 +26,7 @@ import okhttp3.Response;
 public class MainActivity extends AppCompatActivity {
 
     private EditText txtLogin, txtPassword;
-    private Button btnConnect, btnSignUp;
+    private Button btnConnect;
     private String password;
     public static String login;
 
@@ -50,15 +52,17 @@ public class MainActivity extends AppCompatActivity {
                     //Message d'alert
                     Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
                 }else{
-                    if (login.equals("admin") && password.equals("admin"))
+                   /* if(login.equals("admin") && password.equals("admin"))
                     {
                         Intent intent = new Intent(MainActivity.this, UserActivity.class);
                         startActivity(intent);
                     }else {
-                     //   authentification();
+
                         Intent intent = new Intent(MainActivity.this, PatientNavActivity.class);
                         startActivity(intent);
-                    }
+                    }*/
+                    authentification();
+
 
                 }
             }
@@ -66,10 +70,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void authentification(){
-        String url = "http://192.168.1.14/android/esmt/connexion.php?login="+login+"&password="+password;
+        String url = "http://192.168.1.14/android/medicheck/connexion.php?login="+login+"&password="+password;
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder().url(url).build();
+
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -87,7 +92,13 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     String result = response.body().string();
                     JSONObject jo = new JSONObject(result);
+
                     String status = jo.getString("status");
+
+                    JSONArray user = jo.getJSONArray("user");
+                    JSONObject userJSON= user.getJSONObject(0);
+
+                    String type  = userJSON.getString("type");
 
                     if(status.equals("KO")){
                         final String message = getString(R.string.error_parameters);
@@ -99,9 +110,18 @@ public class MainActivity extends AppCompatActivity {
                         });
                     }
                     else{
-                        Intent intent = new Intent(MainActivity.this, PatientActivity.class);
+                       /* Intent intent = new Intent(MainActivity.this, PatientActivity.class);
                         intent.putExtra("LOGIN", login);
-                        startActivity(intent);
+                        startActivity(intent);*/
+
+                        if(type.equals("admin"))
+                        {
+                            Intent intent = new Intent(MainActivity.this, UserActivity.class);
+                            startActivity(intent);
+                        }else {
+                            Intent intent = new Intent(MainActivity.this, PatientNavActivity.class);
+                            startActivity(intent);
+                        }
                     }
                 }catch (Exception e){
                     e.printStackTrace();
