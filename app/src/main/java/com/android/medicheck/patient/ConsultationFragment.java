@@ -2,6 +2,7 @@ package com.android.medicheck.patient;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
+import com.android.medicheck.models.Consultation;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -34,15 +36,23 @@ import okhttp3.Response;
  */
 public class ConsultationFragment extends Fragment {
     ListView listConsultation;
-    private ArrayList<String> tabConsultation = new ArrayList<String>();
+   // private ArrayList<String> tabConsultation = new ArrayList<String>();
+    private ArrayList<Consultation> tabConsultation ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_consultation, container, false);
-        listConsultation = view.findViewById(R.id.listConsultationAdmin);
-        getConsultations();
+        listConsultation = view.findViewById(R.id.listConsultation);
+
+        //getConsultations();
+
+        tabConsultation = Consultation.getConsultations();
+
+        ArrayAdapter<Consultation> adapter = new ArrayAdapter<Consultation>(getContext(), android.R.layout.simple_list_item_1, tabConsultation);
+        listConsultation.setAdapter(adapter);// chargement des donnees de la liste
+
         listConsultation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -52,9 +62,15 @@ public class ConsultationFragment extends Fragment {
         return view;
     }
 
-    private void getConsultations(){
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+    }
+
+    /*private void getConsultations(){
         ArrayList<String> list = new ArrayList<String>();
-        String url = "http://192.168.1.16/android/medicheck/find/consultation.php?id="+ MainActivity.id_user;
+        String url = "http://192.168.1.14/android/medicheck/find/consultation.php?id="+ MainActivity.id_user;
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
@@ -98,5 +114,5 @@ public class ConsultationFragment extends Fragment {
             }
         });
 
-    }
+    }*/
 }

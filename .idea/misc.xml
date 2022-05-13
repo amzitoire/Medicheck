@@ -12,16 +12,20 @@
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/app_bar_patient_nav.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/content_admin.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/content_patient_nav.xml" value="0.1" />
+        <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/fragment_appointment.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/fragment_appointment_admin.xml" value="0.10666666666666667" />
+        <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/fragment_consultation.xml" value="0.1" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/fragment_consultation_admin.xml" value="0.1" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/fragment_home_admin.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/fragment_patient_admin.xml" value="0.1" />
+        <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/item.xml" value="0.1" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/layout.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/layout/nav_header_admin.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/menu/activity_main_drawer.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/menu/activity_main_drawer_admin.xml" value="0.22" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/menu/admin.xml" value="0.1" />
         <entry key="..\:/Users/Amzidou/AndroidStudioProjects/Medicheck/app/src/main/res/menu/patient_nav.xml" value="0.1" />
+        <entry key="..\:/Users/Amzidou/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_appointment.xml" value="0.293" />
         <entry key="app/src/main/res/drawable/ic_consultation.xml" value="0.293" />
         <entry key="app/src/main/res/drawable/ic_help.xml" value="0.293" />

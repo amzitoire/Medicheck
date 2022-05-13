@@ -1,26 +1,40 @@
 package com.android.medicheck.models;
 
+import com.android.medicheck.MainActivity;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class RendezVous {
 
-private String id_rv;
+private int id_rv;
 
 private Date date_rv;
 
 private String motif_rv;
 
-private String id_consulation;
+private int id_consulation;
 
 private String statuts;
 
 public Consultation consultation;
 
-        public String getId_rv() {
+        public int getId_rv() {
                 return id_rv;
         }
 
-        public void setId_rv(String id_rv) {
+        public void setId_rv(int id_rv) {
                 this.id_rv = id_rv;
         }
 
@@ -40,11 +54,11 @@ public Consultation consultation;
                 this.motif_rv = motif_rv;
         }
 
-        public String getId_consulation() {
+        public int getId_consulation() {
                 return id_consulation;
         }
 
-        public void setId_consulation(String id_consulation) {
+        public void setId_consulation(int id_consulation) {
                 this.id_consulation = id_consulation;
         }
 
@@ -62,5 +76,64 @@ public Consultation consultation;
 
         public void setConsultation(Consultation consultation) {
                 this.consultation = consultation;
+        }
+
+
+        public static ArrayList<RendezVous> getRendezVous(){
+                ArrayList<RendezVous> rendezVouss= new ArrayList<RendezVous>();
+                String ipadress = MainActivity.IPADRESS;
+
+                String url = "http://"+ipadress+"/android/medicheck/list/rendezVous.php";
+
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder().url(url).build();
+
+                client.newCall(request).enqueue(new Callback() {
+                        @Override
+                        public void onFailure(Call call, IOException e) {
+                                //
+                        }
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
+                                try {
+                                        String result = response.body().string();
+                                        JSONObject jo = new JSONObject(result);
+                                        JSONArray ja = jo.getJSONArray("rendez_vous");
+
+                                        for (int i = 0; i < ja.length(); i++) {
+
+                                                JSONObject element = ja.getJSONObject(i);
+                                                RendezVous rendezVous = new RendezVous();
+                                                //id_rv	date_rv	motif_rv	status	id_consultation
+
+                                                rendezVous.setId_rv(element.getInt("id_rv"));
+                                                rendezVous.setDate_rv(new SimpleDateFormat("yyyy-MM-dd").parse(element.getString("date_rv")));
+                                                rendezVous.setMotif_rv(element.getString("motif_rv"));
+                                                rendezVous.setStatuts(element.getString("status"));
+                                                rendezVous.setId_consulation(element.getInt("id_consultation"));
+                                                rendezVous.setConsultation(Consultation.findById(element.getInt("id_consultation")));
+
+                                                rendezVouss.add(rendezVous);
+                                        }
+                                }
+                                catch (Exception e){
+                                        e.printStackTrace();
+                                }
+                        }
+                });
+
+                return rendezVouss;
+        }
+
+        public static RendezVous findById(int id){
+                RendezVous rendezVous = new RendezVous();
+
+                for (RendezVous element:getRendezVous()) {
+                        if ((element.getId_rv() == id)){
+                                rendezVous = element;
+                        }
+                }
+
+                return rendezVous;
         }
 }

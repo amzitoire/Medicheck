@@ -31,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private String password;
     public static String login;
     public static int id_user;
+    public final static String IPADRESS="192.168.1.14";
+
+    public final String getIPADRESS(){
+        return IPADRESS;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void authentification(){
-        String url = "http://192.168.1.16/android/medicheck/connexion.php?login="+login+"&password="+password;
+        String url = "http://"+getIPADRESS()+"/android/medicheck/connexion.php?login="+login+"&password="+password;
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder().url(url).build();

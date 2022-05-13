@@ -1,5 +1,19 @@
 package com.android.medicheck.models;
 
+import com.android.medicheck.MainActivity;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class Antecedent {
     private int id_antecedent;
     private String description;
@@ -39,4 +53,59 @@ public class Antecedent {
     }
 
 
+    public static ArrayList<Antecedent> getAntecedents(){
+        ArrayList<Antecedent> antecedents= new ArrayList<Antecedent>();
+        String ipadress = MainActivity.IPADRESS;
+
+        String url = "http://"+ipadress+"/android/medicheck/list/antecedent.php";
+
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url(url).build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                //
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String result = response.body().string();
+                    JSONObject jo = new JSONObject(result);
+                    JSONArray ja = jo.getJSONArray("antecedent");
+
+                    for (int i = 0; i < ja.length(); i++) {
+
+                        JSONObject element = ja.getJSONObject(i);
+                        Antecedent antecedent = new Antecedent();
+                        //id_antecedent	description	id_dossier
+
+                        antecedent.setId_antecedent(element.getInt("id_antecedent"));
+                        antecedent.setDescription(element.getString("description"));
+                        antecedent.setId_dossier(element.getInt("id_dossier"));
+                        antecedent.setDossier(Dossier.findById(element.getInt("id_dossier")));
+
+                        antecedents.add(antecedent);
+                    }
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        return antecedents;
+    }
+
+    public static Antecedent findById(int id){
+        Antecedent antecedent = new Antecedent();
+
+        for (Antecedent element:getAntecedents()) {
+            if ((element.getId_antecedent() == id)){
+                antecedent = element;
+            }
+        }
+
+        return antecedent;
+    }
 }

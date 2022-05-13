@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
+import com.android.medicheck.models.RendezVous;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,7 +36,8 @@ import okhttp3.Response;
 public class AppointmentFragment extends Fragment {
 
     ListView listAppointment;
-    private ArrayList<String> tabAppointment = new ArrayList<String>();
+   // private ArrayList<String> tabAppointment = new ArrayList<String>();
+    private ArrayList<RendezVous> tabAppointment ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,19 +45,25 @@ public class AppointmentFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_appointment, container, false);
         listAppointment = view.findViewById(R.id.listAppointment);
-        getAppointments();
+
+        tabAppointment = RendezVous.getRendezVous();
+
+        ArrayAdapter<RendezVous> adapter = new ArrayAdapter<RendezVous>(getActivity(), android.R.layout.simple_list_item_1, tabAppointment);
+        listAppointment.setAdapter(adapter);// chargement des donnees de la liste
+
+
         listAppointment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
+        /**/    @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
             }
         });
         return view;
     }
-
-    private void getAppointments(){
+}
+   /* private void getAppointments(){
         ArrayList<String> list = new ArrayList<String>();
-        String url = "http://192.168.1.16/android/medicheck/find/appointment.php?id="+MainActivity.id_user;
+        String url = "http://192.168.1.14/android/medicheck/find/appointment.php?id="+MainActivity.id_user;
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
@@ -100,4 +108,4 @@ public class AppointmentFragment extends Fragment {
         });
 
             }
-        }
+        }*/
