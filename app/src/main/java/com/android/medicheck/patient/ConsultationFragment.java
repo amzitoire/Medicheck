@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
 import com.android.medicheck.models.Consultation;
 
@@ -42,7 +43,7 @@ public class ConsultationFragment extends Fragment {
         listConsultation = view.findViewById(R.id.listConsultation);
         btnListAll =view.findViewById(R.id.list_all);
 
-        tabConsultation = Consultation.getConsultations();
+        tabConsultation.addAll(Consultation.findByIdUser(MainActivity.id_user));
 
         adapter = new ArrayAdapter<Consultation>(getContext(), android.R.layout.simple_list_item_1, tabConsultation);
         listConsultation.setAdapter(adapter);// chargement des donnees de la liste

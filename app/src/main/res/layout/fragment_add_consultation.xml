@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".admin.AddConsultationFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_consultation"
+        android:layout_marginBottom="5mm"
+        />
+
+    <EditText
+        android:id="@+id/txtDateConsultation"
+        android:hint="@string/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        />
+
+    <EditText
+        android:id="@+id/txtMotifConsultation"
+        android:hint="@string/reason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        />
+
+    <Button
+        android:id="@+id/btnSaveConsultation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        />
+
+</LinearLayout>

@@ -11,29 +11,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
 import com.android.medicheck.models.RendezVous;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the  factory method to
- * create an instance of this fragment.
- */
+
 public class AppointmentFragment extends Fragment {
 
     ListView listAppointment;
@@ -71,7 +57,11 @@ public class AppointmentFragment extends Fragment {
         });
         return view;
     }
+
+
 }
+
+
    /* private void getAppointments(){
         ArrayList<String> list = new ArrayList<String>();
         String url = "http://192.168.1.14/android/medicheck/find/appointment.php?id="+MainActivity.id_user;
