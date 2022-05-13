@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".admin.ConsultationAdminFragment">
 
+    <Button
+        android:id="@+id/btnAddConsultation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_consultation"
+        />
+
     <ListView
         android:id="@+id/listConsultationAdmin"
         android:layout_width="match_parent"

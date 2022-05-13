@@ -39,6 +39,8 @@
         <entry key="app/src/main/res/layout/app_bar_patient_nav.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/layout/content_admin.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/layout/content_patient_nav.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/fragment_add_appointment.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/fragment_add_consultation.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/layout/fragment_appointment.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/layout/fragment_appointment_admin.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/layout/fragment_consultation.xml" value="0.2921195652173913" />

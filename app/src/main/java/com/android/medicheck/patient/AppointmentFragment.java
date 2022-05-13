@@ -10,34 +10,20 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
 import com.android.medicheck.models.RendezVous;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the  factory method to
- * create an instance of this fragment.
- */
+
 public class AppointmentFragment extends Fragment {
 
     ListView listAppointment;
    // private ArrayList<String> tabAppointment = new ArrayList<String>();
-    private ArrayList<RendezVous> tabAppointment ;
+    private final ArrayList<RendezVous> tabAppointment = new ArrayList<>() ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,22 +31,22 @@ public class AppointmentFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_appointment, container, false);
         listAppointment = view.findViewById(R.id.listAppointment);
-
-        tabAppointment = RendezVous.getRendezVous();
-
-        ArrayAdapter<RendezVous> adapter = new ArrayAdapter<RendezVous>(getActivity(), android.R.layout.simple_list_item_1, tabAppointment);
+        tabAppointment.addAll(RendezVous.getRendezVous());
+        ArrayAdapter<RendezVous> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, tabAppointment);
         listAppointment.setAdapter(adapter);// chargement des donnees de la liste
-
-
         listAppointment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        /**/    @Override
+            @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
             }
         });
         return view;
     }
+
+
 }
+
+
    /* private void getAppointments(){
         ArrayList<String> list = new ArrayList<String>();
         String url = "http://192.168.1.14/android/medicheck/find/appointment.php?id="+MainActivity.id_user;

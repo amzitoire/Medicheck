@@ -175,5 +175,18 @@ public class Consultation {
                 ", medecin=" + medecin +
                 '}';
     }
+
+    public static ArrayList<Consultation> findByIdUser(int id){
+        ArrayList<Consultation> list = new ArrayList<Consultation>();
+
+        for (Consultation element:getConsultations()) {
+            int id_user = element.dossier.getId_patient();
+            if ( id_user== id){
+                list.add(element);
+            }
+        }
+
+        return list;
+    }
 }
 

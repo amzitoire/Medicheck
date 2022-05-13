@@ -1,5 +1,7 @@
 package com.android.medicheck.models;
 
+import android.widget.Toast;
+
 import com.android.medicheck.MainActivity;
 
 import org.json.JSONArray;
@@ -9,6 +11,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -82,16 +85,15 @@ public Consultation consultation;
         public static ArrayList<RendezVous> getRendezVous(){
                 ArrayList<RendezVous> rendezVouss= new ArrayList<RendezVous>();
                 String ipadress = MainActivity.IPADRESS;
-
                 String url = "http://"+ipadress+"/android/medicheck/list/rendezVous.php";
-
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder().url(url).build();
-
                 client.newCall(request).enqueue(new Callback() {
                         @Override
                         public void onFailure(Call call, IOException e) {
-                                //
+                                RendezVous res = new RendezVous();
+                                res.setStatuts("NOK");
+                                rendezVouss.add(res);
                         }
                         @Override
                         public void onResponse(Call call, Response response) throws IOException {
@@ -99,20 +101,16 @@ public Consultation consultation;
                                         String result = response.body().string();
                                         JSONObject jo = new JSONObject(result);
                                         JSONArray ja = jo.getJSONArray("rendez_vous");
-
                                         for (int i = 0; i < ja.length(); i++) {
-
                                                 JSONObject element = ja.getJSONObject(i);
                                                 RendezVous rendezVous = new RendezVous();
                                                 //id_rv	date_rv	motif_rv	status	id_consultation
-
                                                 rendezVous.setId_rv(element.getInt("id_rv"));
-                                                rendezVous.setDate_rv(new SimpleDateFormat("yyyy-MM-dd").parse(element.getString("date_rv")));
+                                                rendezVous.setDate_rv(new SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(element.getString("date_rv")));
                                                 rendezVous.setMotif_rv(element.getString("motif_rv"));
                                                 rendezVous.setStatuts(element.getString("status"));
                                                 rendezVous.setId_consulation(element.getInt("id_consultation"));
                                                 rendezVous.setConsultation(Consultation.findById(element.getInt("id_consultation")));
-
                                                 rendezVouss.add(rendezVous);
                                         }
                                 }
@@ -121,7 +119,6 @@ public Consultation consultation;
                                 }
                         }
                 });
-
                 return rendezVouss;
         }
 
@@ -135,5 +132,23 @@ public Consultation consultation;
                 }
 
                 return rendezVous;
+        }
+
+        public static ArrayList<RendezVous> findByIdUser(int id){
+                ArrayList<RendezVous> list = new ArrayList<RendezVous>();
+                for (RendezVous element:getRendezVous()) {
+                        Dossier dossier = element.consultation.getDossier();
+                        int id_user = dossier.getId_patient();
+                        if ((id_user == id)){
+                                list.add(element);
+                        }
+                }
+
+                return list;
+        }
+
+        @Override
+        public String toString() {
+                return "Date : " + this.date_rv + "\nMotif : '" + this.motif_rv  +  "\n Medecin : " + this.consultation.medecin.prenom + " "+this.consultation.medecin.nom;
         }
 }
