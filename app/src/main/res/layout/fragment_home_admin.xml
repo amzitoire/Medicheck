@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/all"
+    tools:context=".admin.homeAdminFragment">
+
+    <TextView
+        android:textStyle="bold"
+        android:textSize="@dimen/title"
+        android:gravity="center"
+        android:text="SQ Lite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/txtLoginBD"
+        android:layout_marginTop="@dimen/top"
+        android:hint="@string/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:inputType="textPassword"
+        android:id="@+id/txtPasswordBD"
+        android:layout_marginTop="@dimen/top"
+        android:hint="@string/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:backgroundTint="@color/teal_700"
+        android:layout_marginRight="@dimen/right"
+        android:layout_marginLeft="@dimen/left"
+        android:layout_marginTop="@dimen/top"
+        android:text="Add User"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:backgroundTint="@color/blue_dark"
+        android:layout_marginRight="@dimen/right"
+        android:layout_marginLeft="@dimen/left"
+        android:layout_marginTop="@dimen/top"
+        android:text="Update User"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:backgroundTint="@color/purple_200"
+        android:layout_marginRight="@dimen/right"
+        android:layout_marginLeft="@dimen/left"
+        android:layout_marginTop="@dimen/top"
+        android:text="Delete User"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnList"
+        android:backgroundTint="@color/blue_sky"
+        android:layout_marginRight="@dimen/right"
+        android:layout_marginLeft="@dimen/left"
+        android:layout_marginTop="@dimen/top"
+        android:text="list Users"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

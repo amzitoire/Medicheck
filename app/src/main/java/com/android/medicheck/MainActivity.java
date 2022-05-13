@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.medicheck.admin.AdminActivity;
 import com.android.medicheck.patient.PatientNavActivity;
 
 import org.json.JSONArray;
@@ -52,19 +53,8 @@ public class MainActivity extends AppCompatActivity {
                     //Message d'alert
                     Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
                 }else{
-                   /* if(login.equals("admin") && password.equals("admin"))
-                    {
-                        Intent intent = new Intent(MainActivity.this, UserActivity.class);
-                        startActivity(intent);
-                    }else {
-
-                        Intent intent = new Intent(MainActivity.this, PatientNavActivity.class);
-                        startActivity(intent);
-                    }*/
                     authentification();
-
-
-                }
+               }
             }
         });
     }
@@ -116,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if(type.equals("admin"))
                         {
-                            Intent intent = new Intent(MainActivity.this, UserActivity.class);
+                            Intent intent = new Intent(MainActivity.this, AdminActivity.class);
                             startActivity(intent);
                         }else {
                             Intent intent = new Intent(MainActivity.this, PatientNavActivity.class);
