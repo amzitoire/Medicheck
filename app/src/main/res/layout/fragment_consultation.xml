@@ -6,7 +6,7 @@
     tools:context=".patient.ConsultationFragment"
     >
 
-        <Button
+    <Button
             android:id="@+id/list_all"
             android:layout_gravity="center_horizontal"
             android:layout_width="match_parent"

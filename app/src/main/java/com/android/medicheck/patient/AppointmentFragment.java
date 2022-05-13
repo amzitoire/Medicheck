@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -36,6 +37,8 @@ import okhttp3.Response;
 public class AppointmentFragment extends Fragment {
 
     ListView listAppointment;
+    private Button btnListAll;
+
    // private ArrayList<String> tabAppointment = new ArrayList<String>();
     private ArrayList<RendezVous> tabAppointment ;
 
@@ -45,12 +48,20 @@ public class AppointmentFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_appointment, container, false);
         listAppointment = view.findViewById(R.id.listAppointment);
+        btnListAll =view.findViewById(R.id.list_all);
 
         tabAppointment = RendezVous.getRendezVous();
 
         ArrayAdapter<RendezVous> adapter = new ArrayAdapter<RendezVous>(getActivity(), android.R.layout.simple_list_item_1, tabAppointment);
         listAppointment.setAdapter(adapter);// chargement des donnees de la liste
 
+        btnListAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                adapter.notifyDataSetChanged();
+            }
+        });
 
         listAppointment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         /**/    @Override
