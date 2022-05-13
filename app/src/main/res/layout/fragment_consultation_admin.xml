@@ -6,7 +6,7 @@
     tools:context=".admin.ConsultationAdminFragment">
 
     <ListView
-        android:id="@+id/listPatient"
+        android:id="@+id/listConsultationAdmin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

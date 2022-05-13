@@ -4,16 +4,11 @@ import java.util.Date;
 
 public class Dossier {
     private int id_dossier;
-
     private Date birthDate;
-
     private int poids;
-
+    private int taille;
     private String sexe;
-
     private int id_patient;
-
-    public Patient patient;
 
 
     public int getId_dossier() {
@@ -56,12 +51,5 @@ public class Dossier {
         this.id_patient = id_patient;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
 }
 

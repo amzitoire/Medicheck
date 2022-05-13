@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnConnect;
     private String password;
     public static String login;
+    public static int id_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void authentification(){
-        String url = "http://192.168.1.14/android/medicheck/connexion.php?login="+login+"&password="+password;
+        String url = "http://192.168.1.16/android/medicheck/connexion.php?login="+login+"&password="+password;
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder().url(url).build();
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject userJSON= user.getJSONObject(0);
 
                     String type  = userJSON.getString("type");
+                    int id = userJSON.getInt("id_user");
 
                     if(status.equals("KO")){
                         final String message = getString(R.string.error_parameters);
@@ -110,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         }else {
                             Intent intent = new Intent(MainActivity.this, PatientNavActivity.class);
+                            intent.putExtra("id_user",id);
+                            id_user = id;
                             startActivity(intent);
                         }
                     }

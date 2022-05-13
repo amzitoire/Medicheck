@@ -6,9 +6,10 @@
     tools:context=".patient.AppointmentFragment">
 
     <ListView
-        android:id="@+id/listPatient"
+        android:id="@+id/listAppointment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:backgroundTint="@color/blue_sky"
         />
 
 </FrameLayout>
