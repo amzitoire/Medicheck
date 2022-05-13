@@ -6,10 +6,20 @@
     tools:context=".patient.ConsultationFragment"
     >
 
+        <Button
+            android:id="@+id/list_all"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/all"
+            android:layout_height="48dp"
+            android:text="list Consultation" />
+
+
     <ListView
+
         android:id="@+id/listConsultation"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp" />
 
 </FrameLayout>

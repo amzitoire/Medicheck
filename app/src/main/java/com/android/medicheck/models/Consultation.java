@@ -161,5 +161,19 @@ public class Consultation {
 
         return consultation;
     }
+
+    @Override
+    public String toString() {
+        return "Consultation{" +
+                "id_consultation=" + id_consultation +
+                ", date_consultation=" + date_consultation +
+                ", motif_consultation='" + motif_consultation + '\'' +
+                ", resultat='" + resultat + '\'' +
+                ", id_dossier=" + id_dossier +
+                ", statuts='" + statuts + '\'' +
+                ", dossier=" + dossier +
+                ", medecin=" + medecin +
+                '}';
+    }
 }
 
