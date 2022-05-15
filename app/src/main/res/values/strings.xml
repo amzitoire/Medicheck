@@ -31,12 +31,15 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="reason">Motif</string>
-    <string name="date">Date</string>
+    <string name="date">Sélectionnez une Date</string>
     <string name="add_patient">Ajouter un patient</string>
     <string name="add_appointment">Ajouter un rendez-vous</string>
     <string name="add_consultation">Ajouter une consultation</string>
     <string name="alter">Modifier</string>
     <string name="delete">Supprimer</string>
+    <string name="day">Jour</string>
+    <string name="month">Mois</string>
+    <string name="year">Année</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_admin">AdminActivity</string>

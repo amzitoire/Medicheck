@@ -125,5 +125,16 @@ public class Dossier {
         this.id_patient = id_patient;
     }
 
+    @Override
+    public String toString() {
+        return "Dossier{" +
+                "id_dossier=" + id_dossier +
+                ", birthDate=" + birthDate +
+                ", poids=" + poids +
+                ", taille=" + taille +
+                ", sexe='" + sexe + '\'' +
+                ", id_patient=" + id_patient +
+                '}';
+    }
 }
 

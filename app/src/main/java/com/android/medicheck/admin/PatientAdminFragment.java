@@ -27,4 +27,8 @@ public class PatientAdminFragment extends Fragment {
 
         return view;
     }
+
+    private void getUsers(){
+
+    }
 }

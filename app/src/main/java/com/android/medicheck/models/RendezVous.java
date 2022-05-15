@@ -1,6 +1,6 @@
 package com.android.medicheck.models;
 
-import android.widget.Toast;
+
 
 import com.android.medicheck.MainActivity;
 
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
+
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -83,7 +83,7 @@ public Consultation consultation;
 
 
         public static ArrayList<RendezVous> getRendezVous(){
-                ArrayList<RendezVous> rendezVouss= new ArrayList<RendezVous>();
+                ArrayList<RendezVous> list= new ArrayList<RendezVous>();
                 String ipadress = MainActivity.IPADRESS;
                 String url = "http://"+ipadress+"/android/medicheck/list/rendezVous.php";
                 OkHttpClient client = new OkHttpClient();
@@ -93,7 +93,7 @@ public Consultation consultation;
                         public void onFailure(Call call, IOException e) {
                                 RendezVous res = new RendezVous();
                                 res.setStatuts("NOK");
-                                rendezVouss.add(res);
+                                list.add(res);
                         }
                         @Override
                         public void onResponse(Call call, Response response) throws IOException {
@@ -104,14 +104,14 @@ public Consultation consultation;
                                         for (int i = 0; i < ja.length(); i++) {
                                                 JSONObject element = ja.getJSONObject(i);
                                                 RendezVous rendezVous = new RendezVous();
-                                                //id_rv	date_rv	motif_rv	status	id_consultation
+                                                // id_rv	date_rv	motif_rv	status	id_consultation
                                                 rendezVous.setId_rv(element.getInt("id_rv"));
-                                                rendezVous.setDate_rv(new SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(element.getString("date_rv")));
+                                                rendezVous.setDate_rv(new SimpleDateFormat("yyyy-mm-dd").parse(element.getString("date_rv")));
                                                 rendezVous.setMotif_rv(element.getString("motif_rv"));
                                                 rendezVous.setStatuts(element.getString("status"));
                                                 rendezVous.setId_consulation(element.getInt("id_consultation"));
-                                                rendezVous.setConsultation(Consultation.findById(element.getInt("id_consultation")));
-                                                rendezVouss.add(rendezVous);
+//                                                rendezVous.setConsultation(Consultation.findById(element.getInt("id_consultation")));
+                                                list.add(rendezVous);
                                         }
                                 }
                                 catch (Exception e){
@@ -119,7 +119,7 @@ public Consultation consultation;
                                 }
                         }
                 });
-                return rendezVouss;
+                return list;
         }
 
         public static RendezVous findById(int id){
@@ -149,6 +149,6 @@ public Consultation consultation;
 
         @Override
         public String toString() {
-                return "Date : " + this.date_rv + "\nMotif : '" + this.motif_rv  +  "\n Medecin : " + this.consultation.medecin.prenom + " "+this.consultation.medecin.nom;
+                return "Date : " + this.date_rv + "\nMotif : '" + this.motif_rv  ;
         }
 }

@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
                     //Message d'alert
                     Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
                 }else{
-                    authentification();
+                    //authentification();
+                    Intent intent = new Intent(MainActivity.this, AdminActivity.class);
+                    startActivity(intent);
                }
             }
         });

@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/nav_medical_file"
+        android:name="com.android.medicheck.patient.MedicalFileFragment"
+        android:label="@string/medical_file"
+        tools:layout="@layout/fragment_medical_file" />
+
+    <fragment
         android:id="@+id/nav_consultation"
         android:name="com.android.medicheck.patient.ConsultationFragment"
         android:label="@string/consultation"

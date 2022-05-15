@@ -4,39 +4,38 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class HospitalFragment extends Fragment {
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-    private OnMapReadyCallback callback = new OnMapReadyCallback() {
+import java.io.IOException;
 
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
-        @Override
-        public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(-34, 151);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        }
-    };
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+public class HospitalFragment extends Fragment implements OnMapReadyCallback{
+
+    private GoogleMap mMap;
+
 
     @Nullable
     @Override
@@ -47,12 +46,59 @@ public class HospitalFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        SupportMapFragment mapFragment =
-                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(callback);
-        }
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        getHospitals(mMap);
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
     }
+
+    private void getHospitals(GoogleMap map){
+        String url = "http://"+ MainActivity.IPADRESS+"/android/medicheck/list/hopital.php";
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url(url).build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                final String message = getString(R.string.error_connection);
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String result = response.body().string();
+                    JSONObject jo = new JSONObject(result);
+                    JSONArray ja = jo.getJSONArray("hopital");
+                    for (int i = 0; i < ja.length(); i++) {
+                        JSONObject element = ja.getJSONObject(i);
+                        String nom = element.getString("nom");
+                        String adresse = element.getString("adresse");
+                        String numero = element.getString("numero");
+                        String snippet = "Numero : "+numero+"\nAdresse : "+adresse;
+                        double latitude = element.getDouble("latitude");
+                        double longitude = element.getDouble("longitude");
+                        LatLng hopital = new LatLng(latitude,longitude);
+                        map.addMarker(new MarkerOptions().position(hopital).title(nom).snippet(snippet));
+                        CircleOptions co = new CircleOptions()
+                                .center(hopital)
+                                .radius(600)
+                                .fillColor(Color.GREEN)
+                                .strokeColor(Color.WHITE)
+                                .strokeWidth(6);
+                        mMap.addCircle(co);
+                    }
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
 }

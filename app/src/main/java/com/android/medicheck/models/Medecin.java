@@ -123,5 +123,15 @@ public class Medecin {
         this.numero = numero;
     }
 
+    @Override
+    public String toString() {
+        return "Medecin{" +
+                "id_medecin=" + id_medecin +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", specialite='" + specialite + '\'' +
+                ", numero='" + numero + '\'' +
+                '}';
+    }
 }
 

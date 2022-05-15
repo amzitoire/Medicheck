@@ -7,9 +7,15 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.android.medicheck.admin.homeAdminFragment"
+        android:name="com.android.medicheck.commons.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/activity_user" />
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_patient_admin"
+        android:name="com.android.medicheck.admin.PatientAdminFragment"
+        android:label="@string/patient"
+        tools:layout="@layout/fragment_patient_admin" />
 
     <fragment
         android:id="@+id/nav_appointment_admin"
@@ -24,10 +30,16 @@
         tools:layout="@layout/fragment_consultation_admin" />
 
     <fragment
-        android:id="@+id/nav_patient_admin"
-        android:name="com.android.medicheck.admin.PatientAdminFragment"
-        android:label="@string/patient"
-        tools:layout="@layout/fragment_patient_admin" />
+        android:id="@+id/nav_hospital"
+        android:name="com.android.medicheck.commons.HospitalFragment"
+        android:label="@string/hospital"
+        tools:layout="@layout/fragment_hospital" />
+
+    <fragment
+        android:id="@+id/nav_help"
+        android:name="com.android.medicheck.commons.HelpFragment"
+        android:label="@string/help"
+        tools:layout="@layout/fragment_help" />
 
 
 </navigation>

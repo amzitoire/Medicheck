@@ -47,7 +47,7 @@ public class PatientNavActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_consultation, R.id.nav_appointment,R.id.nav_hospital,R.id.nav_help)
+                R.id.nav_home, R.id.nav_medical_file,R.id.nav_consultation, R.id.nav_appointment,R.id.nav_hospital,R.id.nav_help)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_patient_nav);
