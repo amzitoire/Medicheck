@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.android.medicheck.MainActivity;
-import com.android.medicheck.PatientActivity;
 import com.android.medicheck.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

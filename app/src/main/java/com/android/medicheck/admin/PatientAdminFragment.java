@@ -36,10 +36,10 @@ import okhttp3.Response;
 public class PatientAdminFragment extends Fragment {
     private ExpandableListView listPatient;
     private ExpandableListAdapter listAdapter;
-    private ArrayList<String> tabPatient = new ArrayList<>();
+    private ArrayList<String> tabPatient = new ArrayList<String>();
     private ArrayList<Integer> tabIdUser = new ArrayList<Integer>();
-    private List<String> options;
-    private HashMap<String, List<String>> listDataChild;
+    private List<String> options = new ArrayList<String>() ;
+    private HashMap<String, List<String>> listDataChild = new HashMap<String, List<String>>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
