@@ -9,15 +9,15 @@
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_patient"
+            android:id="@+id/nav_patient_admin"
             android:icon="@drawable/ic_patient"
             android:title="@string/patient" />
         <item
-            android:id="@+id/nav_consultation"
+            android:id="@+id/nav_consultation_admin"
             android:icon="@drawable/ic_consultation"
             android:title="@string/consultation" />
         <item
-            android:id="@+id/nav_appointment"
+            android:id="@+id/nav_appointment_admin"
             android:icon="@drawable/ic_appointment"
             android:title="@string/appointment" />
         <item
