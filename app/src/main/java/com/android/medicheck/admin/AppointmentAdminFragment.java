@@ -57,13 +57,6 @@ public class AppointmentAdminFragment extends Fragment {
 
                     }
                 });
-                dialog.setPositiveButton(getString(R.string.alter), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                    }
-                });
                 dialog.show();
             }
         });

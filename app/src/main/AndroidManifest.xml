@@ -36,9 +36,6 @@
             android:label="@string/title_activity_patient_nav"
             android:theme="@style/Theme.Medicheck.NoActionBar" />
         <activity
-            android:name=".PatientActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

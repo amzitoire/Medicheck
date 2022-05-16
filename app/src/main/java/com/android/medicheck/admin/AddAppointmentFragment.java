@@ -21,6 +21,7 @@ import java.util.Calendar;
 
 
 public class AddAppointmentFragment extends Fragment {
+    public static int id_user;
     private TextView tvDate;
     private EditText txtMotif;
     private Button btnSaveAppointment;

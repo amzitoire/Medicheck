@@ -35,6 +35,7 @@
     <string name="add_patient">Ajouter un patient</string>
     <string name="add_appointment">Ajouter un rendez-vous</string>
     <string name="add_consultation">Ajouter une consultation</string>
+    <string name="add_medical_file">saisir le dossier médical</string>
     <string name="alter">Modifier</string>
     <string name="delete">Supprimer</string>
     <string name="day">Jour</string>

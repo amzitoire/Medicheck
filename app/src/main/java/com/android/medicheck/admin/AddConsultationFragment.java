@@ -14,6 +14,7 @@ import com.android.medicheck.R;
 
 
 public class AddConsultationFragment extends Fragment {
+    public static int id_user;
     private EditText txtDateConsultation;
     private EditText txtMotifConsultation;
     private Button btnSaveConsultation;
