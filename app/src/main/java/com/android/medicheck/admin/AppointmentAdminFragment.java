@@ -78,7 +78,7 @@ public class AppointmentAdminFragment extends Fragment {
 
     private void getAppointments(){
         ArrayList<String> list = new ArrayList<String>();
-        String url = "http://192.168.1.16/android/medicheck/list/rendezVous.php";
+        String url = "http://"+MainActivity.IPADRESS+"/android/medicheck/list/rendezVous.php";
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {

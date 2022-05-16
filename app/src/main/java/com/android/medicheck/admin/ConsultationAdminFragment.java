@@ -35,7 +35,7 @@ public class ConsultationAdminFragment extends Fragment {
 
     private ListView listConsultation;
     private Button btnAddConsultation;
-    private ArrayList<String> tabConsultation;
+    private ArrayList<String> tabConsultation = new ArrayList<String>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,7 +74,7 @@ public class ConsultationAdminFragment extends Fragment {
 
     private void getConsultations(){
         ArrayList<String> list = new ArrayList<String>();
-        String url = "http://192.168.1.16/android/medicheck/list/consultation.php";
+        String url = "http://"+MainActivity.IPADRESS+"/android/medicheck/list/consultation.php";
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
@@ -84,7 +84,7 @@ public class ConsultationAdminFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                     }
                 });
             }

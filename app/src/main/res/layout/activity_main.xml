@@ -18,24 +18,30 @@
 
     <EditText
         android:id="@+id/txtLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/top"
         android:hint="@string/login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:minHeight="48dp"
+        android:autofillHints=""
+        android:inputType="text" />
 
     <EditText
-        android:inputType="textPassword"
         android:id="@+id/txtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/top"
         android:hint="@string/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btnConnect"
         android:backgroundTint="@color/blue_dark"
-        android:layout_marginRight="@dimen/right"
-        android:layout_marginLeft="@dimen/left"
+        android:layout_marginEnd="@dimen/right"
+        android:layout_marginStart="@dimen/left"
         android:layout_marginTop="@dimen/top"
         android:text="@string/connect"
         android:layout_width="match_parent"
