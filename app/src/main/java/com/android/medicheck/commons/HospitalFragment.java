@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.android.medicheck.MainActivity;
+import com.android.medicheck.PatientActivity;
 import com.android.medicheck.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,6 +23,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -33,29 +35,62 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class HospitalFragment extends Fragment implements OnMapReadyCallback{
-
-    private GoogleMap mMap;
-
-
+    private JSONArray hopitalArray;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_hospital, container, false);
+        getHospitals();
+        View view =inflater.inflate(R.layout.fragment_hospital, container, false);
+
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+                .findFragmentById(R.id.map);
+
+        mapFragment.getMapAsync(this);
+
+        return view;
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        getHospitals(mMap);
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        LatLng dakar = new LatLng(14.693425, -17.447938);
+        googleMap.addMarker(new MarkerOptions().position(dakar).title("DKR").snippet("Région de dakar,Sénégal."));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dakar, 10));
+
+        for (int i = 0; i < hopitalArray.length(); i++) {
+            try {
+                JSONObject element = null;
+                element = hopitalArray.getJSONObject(i);
+            String nom = element.getString("nom");
+            String adresse = element.getString("adresse");
+            String numero = element.getString("numero");
+            String snippet = "Numero : "+numero+"\nAdresse : "+adresse;
+            double latitude = element.getDouble("latitude");
+            double longitude = element.getDouble("longitude");
+            LatLng hopital = new LatLng(latitude,longitude);
+            googleMap.addMarker(new MarkerOptions().position(hopital).title(nom).snippet(snippet));
+            CircleOptions co = new CircleOptions()
+                        .center(hopital)
+                        .radius(10)
+                        .fillColor(Color.GREEN)
+                        .strokeColor(Color.WHITE)
+                        .strokeWidth(6);
+            googleMap.addCircle(co);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+                    }
+
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
     }
 
-    private void getHospitals(GoogleMap map){
-        String url = "http://"+ MainActivity.IPADRESS+"/android/medicheck/list/hopital.php";
+    public void getHospitals(){
+        String url = "http://"+MainActivity.IPADRESS+"/android/medicheck/list/hopital.php";
         OkHttpClient client = new OkHttpClient();
+        final JSONArray[] ja = {new JSONArray()};
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -64,7 +99,7 @@ public class HospitalFragment extends Fragment implements OnMapReadyCallback{
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -74,31 +109,21 @@ public class HospitalFragment extends Fragment implements OnMapReadyCallback{
                 try {
                     String result = response.body().string();
                     JSONObject jo = new JSONObject(result);
-                    JSONArray ja = jo.getJSONArray("hopital");
-                    for (int i = 0; i < ja.length(); i++) {
-                        JSONObject element = ja.getJSONObject(i);
-                        String nom = element.getString("nom");
-                        String adresse = element.getString("adresse");
-                        String numero = element.getString("numero");
-                        String snippet = "Numero : "+numero+"\nAdresse : "+adresse;
-                        double latitude = element.getDouble("latitude");
-                        double longitude = element.getDouble("longitude");
-                        LatLng hopital = new LatLng(latitude,longitude);
-                        map.addMarker(new MarkerOptions().position(hopital).title(nom).snippet(snippet));
-                        CircleOptions co = new CircleOptions()
-                                .center(hopital)
-                                .radius(600)
-                                .fillColor(Color.GREEN)
-                                .strokeColor(Color.WHITE)
-                                .strokeWidth(6);
-                        mMap.addCircle(co);
-                    }
+                    ja[0] = jo.getJSONArray("hopital");
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            hopitalArray = ja[0];
+                        }
+                    });
                 }
                 catch (Exception e){
                     e.printStackTrace();
                 }
             }
         });
+
     }
 
 }

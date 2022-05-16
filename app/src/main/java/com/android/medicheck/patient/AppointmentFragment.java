@@ -68,7 +68,7 @@ public class AppointmentFragment extends Fragment {
                getActivity().runOnUiThread(new Runnable() {
                    @Override
                    public void run() {
-                       Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                    }
                });
            }
