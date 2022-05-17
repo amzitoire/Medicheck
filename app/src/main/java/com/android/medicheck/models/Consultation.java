@@ -1,20 +1,12 @@
 package com.android.medicheck.models;
 
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
-
 import com.android.medicheck.MainActivity;
-import com.android.medicheck.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -26,7 +18,7 @@ public class Consultation {
 
     private int id_consultation;
 
-    private Date date_consultation;
+    private String date_consultation;
 
     private String motif_consultation;
 
@@ -48,11 +40,11 @@ public class Consultation {
         this.id_consultation = id_consultation;
     }
 
-    public Date getDate_consultation() {
+    public String getDate_consultation() {
         return date_consultation;
     }
 
-    public void setDate_consultation(Date date_consultation) {
+    public void setDate_consultation(String date_consultation) {
         this.date_consultation = date_consultation;
     }
 
@@ -131,7 +123,7 @@ public class Consultation {
                         Consultation consultation = new Consultation();
                         //id_consultation	date_consultation	motif	resultat	status	id_dossier id_medecin
                         consultation.setId_consultation(element.getInt("id_consultation"));
-                        consultation.setDate_consultation(new SimpleDateFormat("yyyy-MM-dd").parse(element.getString("date_consultation")));
+                        consultation.setDate_consultation(element.getString("date_consultation"));
                         consultation.setMotif_consultation(element.getString("motif"));
                         consultation.setDossier(Dossier.findById(element.getInt("id_dossier")));
                         consultation.setMedecin(Medecin.findById(element.getInt("id_medecin")));
@@ -164,12 +156,7 @@ public class Consultation {
 
     @Override
     public String toString() {
-        return "Consultation{" +
-                ", date_consultation=" + date_consultation +
-                ", motif_consultation='" + motif_consultation + '\'' +
-                ", resultat='" + resultat + '\'' +
-                ", statuts='" + statuts + '\'' + dossier.getId_patient()+
-                '}';
+        return "date : "+getDate_consultation()+"\nmotif : "+getMotif_consultation()+"\nstatut : "+getStatuts();
     }
 
     public static ArrayList<Consultation> findByIdUser(int id){

@@ -1,14 +1,13 @@
 package com.android.medicheck.patient;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
@@ -27,15 +26,31 @@ import okhttp3.Response;
 
 public class MedicalFileFragment extends Fragment {
 
+    private TextView tvPrenom;
+    private TextView tvNom;
+    private TextView tvsexe;
+    private TextView tvdate;
+    private TextView tvpoids;
     private TextView tvMedicalFile;
+
     private String  file;
+    private String  nom;
+    private String  prenom;
+    private String  sexe;
+    private String  date;
+    private String  poids;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_medical_file, container, false);
-        tvMedicalFile = view.findViewById(R.id.tvMedicalFile);
+      //  tvMedicalFile = view.findViewById(R.id.tvMedicalFile);
+        tvPrenom =view.findViewById(R.id.tvPrenom);
+        tvNom =view.findViewById(R.id.tvNom);
+        tvdate =view.findViewById(R.id.tvdate);
+        tvsexe =view.findViewById(R.id.tvSexe);
+        tvpoids =view.findViewById(R.id.tvpoids);
         getFile();
         return view;
     }
@@ -65,17 +80,27 @@ public class MedicalFileFragment extends Fragment {
                     JSONArray ja = jo.getJSONArray("dossier");
                     for (int i = 0; i < ja.length(); i++) {
                         JSONObject element = ja.getJSONObject(i);
-                        String prenom = element.getString("prenom");
-                        String nom = element.getString("nom");
-                        String sexe = element.getString("sexe");
-                        String date_naissance = element.getString("date_naissance");
-                        String poids = element.getString("poids");
-                        file = "Prénom : "+ prenom + "\nNom : "+nom+"\nSexe : "+sexe+"\nDate de naissance : "+date_naissance+"\nPoids : "+poids;
+                        String prenomD = element.getString("prenom");
+                        String nomD = element.getString("nom");
+                        String sexeD = element.getString("sexe");
+                        String date_naissanceD = element.getString("date_naissance");
+                        String poidsD = element.getString("poids");
+                        prenom = "Prenom : "+prenomD ;
+                        nom = "Nom : "+nomD;
+                        date= "Date de naissance :"+date_naissanceD;
+                        sexe = "Sexe :"+sexeD;
+                        poids = "Poids :"+poidsD;
+                       // file = "Prénom : "+ prenom + "\nNom : "+nom+"\nSexe : "+sexe+"\nDate de naissance : "+date_naissance+"\nPoids : "+poids;
                     }
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            tvMedicalFile.setText(file);
+
+                            tvPrenom.setText(prenom);
+                            tvNom.setText(nom);
+                            tvdate.setText(date);
+                            tvsexe.setText(sexe);
+                            tvpoids.setText(poids);
                         }
                     });
 

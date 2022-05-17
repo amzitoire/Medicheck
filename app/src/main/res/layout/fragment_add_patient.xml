@@ -11,9 +11,29 @@
         android:textStyle="bold"
         android:textSize="@dimen/title"
         android:gravity="center"
-        android:text="@string/connection"
+        android:text="@string/add_patient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/txtNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/top"
+        android:hint="@string/nom"
+        android:minHeight="48dp"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/txtPrenom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/top"
+        android:hint="@string/prenom"
+        android:minHeight="48dp"
+        android:autofillHints=""
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/txtLogin"
@@ -37,12 +57,12 @@
         android:autofillHints="" />
 
     <Button
-        android:id="@+id/btnConnect"
+        android:id="@+id/btnAddPatient"
         android:backgroundTint="@color/blue_dark"
         android:layout_marginEnd="@dimen/right"
         android:layout_marginStart="@dimen/left"
         android:layout_marginTop="@dimen/top"
-        android:text="@string/connect"
+        android:text="@string/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

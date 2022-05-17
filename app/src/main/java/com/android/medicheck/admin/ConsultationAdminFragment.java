@@ -3,9 +3,6 @@ package com.android.medicheck.admin;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +12,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
 import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
+import com.android.medicheck.models.Consultation;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,7 +35,7 @@ public class ConsultationAdminFragment extends Fragment {
 
     private ListView listConsultation;
     private Button btnAddConsultation;
-    private ArrayList<String> tabConsultation = new ArrayList<String>();
+    private ArrayList<Consultation> tabConsultation = new ArrayList<Consultation>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,11 +47,14 @@ public class ConsultationAdminFragment extends Fragment {
         listConsultation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Consultation cons = (Consultation) listConsultation.getItemAtPosition(i);
+                String details = cons.toString();
+                // selected item
 
                 AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                 dialog.setIcon(R.mipmap.ic_logo_app_round);
                 dialog.setTitle(R.string.consultation);
-                dialog.setMessage("details");
+                dialog.setMessage(details);
                 dialog.setNeutralButton(getString(R.string.cancel),null);
                 dialog.setNegativeButton(getString(R.string.delete), new DialogInterface.OnClickListener() {
                     @Override
@@ -59,11 +62,29 @@ public class ConsultationAdminFragment extends Fragment {
 
                     }
                 });
-                dialog.setPositiveButton(getString(R.string.alter), new DialogInterface.OnClickListener() {
+                dialog.setPositiveButton("Gerer consultation", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                        dialog.setIcon(R.mipmap.ic_logo_app_round);
+                        dialog.setTitle(R.string.consultation);
+                        dialog.setMessage(details);
+                        dialog.setNeutralButton(getString(R.string.cancel),null);
+                        dialog.setNegativeButton(getString(R.string.alter), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
+                            }
+                        });
+                        dialog.setPositiveButton(getString(R.string.add_appointment), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                AddAppointmentFragment.id_consultation = cons.getId_consultation();
+                                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_content_admin, new AddAppointmentFragment()).addToBackStack(null).commit();
 
+                            }
+                        });
+                        dialog.show();
                     }
                 });
                 dialog.show();
@@ -73,7 +94,7 @@ public class ConsultationAdminFragment extends Fragment {
     }
 
     private void getConsultations(){
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<Consultation> list = new ArrayList<Consultation>();
         String url = "http://"+MainActivity.IPADRESS+"/android/medicheck/list/consultation.php";
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
@@ -100,14 +121,22 @@ public class ConsultationAdminFragment extends Fragment {
                         String date_rv = element.getString("date_consultation");
                         String motif_rv = element.getString("motif");
                         String status = element.getString("status");
-                        String chaine = "date : "+date_rv+"\nmotif : "+motif_rv+"\nstatut : "+status;
-                        list.add(chaine);
+                        int id_consultation = element.getInt("id_consultation");
+
+                        Consultation consultation = new Consultation();
+                        consultation.setId_consultation(id_consultation);
+                        consultation.setDate_consultation(date_rv);
+                        consultation.setMotif_consultation(motif_rv);
+                        consultation.setStatuts(status);
+
+                       // String chaine = "date : "+date_rv+"\nmotif : "+motif_rv+"\nstatut : "+status;
+                        list.add(consultation);
                     }
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             tabConsultation.addAll(list);
-                            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, tabConsultation);
+                            ArrayAdapter<Consultation> adapter = new ArrayAdapter<Consultation>(getActivity(), android.R.layout.simple_list_item_1, tabConsultation);
                             listConsultation.setAdapter(adapter);// chargement des donnees de la liste
                         }
                     });

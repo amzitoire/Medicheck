@@ -46,6 +46,10 @@
     <string name="title_activity_admin">AdminActivity</string>
     <string name="admin">Admin login</string>
     <string name="success">Ajout réussit</string>
+    <string name="picksexe">choisir genre</string>
+    <string name="nom">nom</string>
+    <string name="prenom">prenom</string>
+    <string name="error_field_login">login deja utilisé. Veuillez changer de login.</string>
 
 
 </resources>

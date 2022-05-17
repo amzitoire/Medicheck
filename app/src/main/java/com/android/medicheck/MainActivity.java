@@ -1,7 +1,5 @@
 package com.android.medicheck;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,22 +7,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.medicheck.admin.AdminActivity;
-import com.android.medicheck.models.Antecedent;
-import com.android.medicheck.models.Consultation;
-import com.android.medicheck.models.Dossier;
-import com.android.medicheck.models.Hopital;
-import com.android.medicheck.models.Medecin;
-import com.android.medicheck.models.Orientation;
-import com.android.medicheck.models.Patient;
-import com.android.medicheck.models.RendezVous;
 import com.android.medicheck.patient.PatientNavActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -49,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // getALL();
 
         //Liaison entre variables et composants
         txtLogin = findViewById(R.id.txtLogin);
@@ -69,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
                 }else{
                     authentification();
-                   // Intent intent = new Intent(MainActivity.this, AdminActivity.class);
-                   // startActivity(intent);
                }
             }
         });
@@ -138,16 +126,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    public void getALL(){
-        Antecedent.getAntecedents();
-        Consultation.getConsultations();
-        Dossier.getDossiers();
-        Hopital.getHopitals();
-        Medecin.getMedecins();
-        Orientation.getRendezVous();
-        Patient.getPatients();
-        RendezVous.getRendezVous();
     }
 }

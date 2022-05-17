@@ -1,21 +1,18 @@
 package com.android.medicheck.patient;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
 import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
-import com.android.medicheck.models.RendezVous;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -58,7 +55,7 @@ public class AppointmentFragment extends Fragment {
 
    private void getAppointments() {
        ArrayList<String> list = new ArrayList<>();
-       String url = "http://192.168.1.16/android/medicheck/find/appointment.php?id="+ MainActivity.id_user;
+       String url = "http://"+MainActivity.IPADRESS+"/android/medicheck/find/appointment.php?id="+ MainActivity.id_user;
        OkHttpClient client = new OkHttpClient();
        Request request = new Request.Builder().url(url).build();
        client.newCall(request).enqueue(new Callback() {

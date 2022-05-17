@@ -1,19 +1,14 @@
 package com.android.medicheck.admin;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.android.medicheck.MainActivity;
 import com.android.medicheck.R;
@@ -36,6 +31,7 @@ import okhttp3.Response;
 public class PatientAdminFragment extends Fragment {
     private ExpandableListView listPatient;
     private ExpandableListAdapter listAdapter;
+    private Button btnAddPatient;
     private ArrayList<String> tabPatient = new ArrayList<String>();
     private ArrayList<Integer> tabIdUser = new ArrayList<Integer>();
     private List<String> options = new ArrayList<String>() ;
@@ -45,7 +41,7 @@ public class PatientAdminFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        options.add(getString(R.string.add_appointment));
+        //options.add(getString(R.string.add_appointment));
         options.add(getString(R.string.add_consultation));
         options.add(getString(R.string.add_medical_file));
         options.add(getString(R.string.delete));
@@ -57,21 +53,24 @@ public class PatientAdminFragment extends Fragment {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 int id_user = tabIdUser.get(groupPosition);
                 if(childPosition == 0){
-                    AddAppointmentFragment.id_user = id_user;
-                    getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_content_admin, new AddAppointmentFragment()).addToBackStack(null).commit();
-                }
-                else if(childPosition == 1){
                     AddConsultationFragment.id_user = id_user;
                     getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_content_admin, new AddConsultationFragment()).addToBackStack(null).commit();
                 }
-                else if(childPosition == 2){
-                    AddConsultationFragment.id_user = id_user;
+                else if(childPosition == 1){
+                    AddMedicalFileFragment.id_user = id_user;
                     getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_content_admin, new AddMedicalFileFragment()).addToBackStack(null).commit();
                 }
                 return false;
             }
         });
 
+        btnAddPatient = view.findViewById(R.id.btnAddPatient);
+        btnAddPatient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_content_admin, new addPatientFragment()).addToBackStack(null).commit();
+            }
+        });
         return view;
     }
 

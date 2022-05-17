@@ -1,7 +1,6 @@
 package com.android.medicheck.models;
 
 
-
 import com.android.medicheck.MainActivity;
 
 import org.json.JSONArray;
@@ -11,7 +10,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 
 import okhttp3.Call;
 import okhttp3.Callback;

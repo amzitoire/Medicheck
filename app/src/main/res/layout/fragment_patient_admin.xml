@@ -6,8 +6,16 @@
     android:orientation="vertical"
     tools:context=".admin.PatientAdminFragment">
 
+    <Button
+        android:id="@+id/btnAddPatient"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/all"
+        android:text="@string/add_patient"/>
+
     <ExpandableListView
         android:id="@+id/listPatient"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />

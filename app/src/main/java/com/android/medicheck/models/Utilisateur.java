@@ -1,8 +1,6 @@
 package com.android.medicheck.models;
 
 
-import com.android.medicheck.MainActivity;
-
 public abstract class Utilisateur {
         private int id;
 
