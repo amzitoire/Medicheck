@@ -15,13 +15,22 @@
         android:layout_marginBottom="5mm"
         />
 
-    <EditText
-        android:id="@+id/txtDateConsultation"
-        android:hint="@string/date"
+    <TextView
+        android:id="@+id/tvDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="date"
+        android:text="@string/date"
+        android:gravity="center"
+        android:layout_marginBottom="5mm"
+        android:textSize="20sp"
         />
+
+    <Spinner
+        android:id="@+id/medecin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"/>
 
     <EditText
         android:id="@+id/txtMotifConsultation"

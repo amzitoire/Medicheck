@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private String password;
     public static String login;
     public static int id_user;
-    public final static String IPADRESS="192.168.1.3";
+    public final static String IPADRESS="192.168.1.11";
 
     public final String getIPADRESS(){
         return IPADRESS;
@@ -102,11 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
                     String status = jo.getString("status");
 
-                    JSONArray user = jo.getJSONArray("user");
-                    JSONObject userJSON= user.getJSONObject(0);
-
-                    String type  = userJSON.getString("type");
-                    int id = userJSON.getInt("id_user");
 
                     if(status.equals("KO")){
                         final String message = getString(R.string.error_parameters);
@@ -121,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
                        /* Intent intent = new Intent(MainActivity.this, PatientActivity.class);
                         intent.putExtra("LOGIN", login);
                         startActivity(intent);*/
+                        JSONArray user = jo.getJSONArray("user");
+                        JSONObject userJSON= user.getJSONObject(0);
+
+                        String type  = userJSON.getString("type");
+                        int id = userJSON.getInt("id_user");
 
                         if(type.equals("admin"))
                         {
