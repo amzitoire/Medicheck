@@ -50,6 +50,16 @@
     <string name="nom">nom</string>
     <string name="prenom">prenom</string>
     <string name="error_field_login">login deja utilisé. Veuillez changer de login.</string>
-
-
+    <string name="help_header_1">1. Modifier son dossier médical, rendez-vous ou consultation</string>
+    <string name="help_header_2">2. Login ou mot de passe oublié</string>
+    <string name="help_header_3">3. Report ou annulation des rendez-vous</string>
+    <string name="help_body_1">Afin de modifier son dossier , rendez-vous ou bien consultation , il est nécessaire de contacter l\'administrateur du système.
+    Des mises à jour futures vous permettront de faire vos réclamations directement au niveau de l'hopital concerné.
+    </string>
+    <string name="help_body_2">Votre login et votre mot de passe vous sont automatiquement attribués par l\'administrateur, en cas d'oubli veuillez donc le contacter</string>
+    <string name="help_body_3">En cas de report ou d\'annulation de votre rendez-vous, l\'hopital en charge sera chargé de vous notifier à l'aide d'un sms</string>
+    <string name="home_head">Bienvenue et merci d\' utiliser Medicheck !!!!</string>
+    <string name="home_body">Medicheck est une appli vous permettant de gérer efficacement vos rendez-vous et consultations dans
+    nos différents hopitaux partenaires.
+    </string>
 </resources>

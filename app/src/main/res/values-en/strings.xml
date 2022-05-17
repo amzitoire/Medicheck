@@ -44,4 +44,23 @@
     <string name="day">Day</string>
     <string name="month">Month</string>
     <string name="year">Year</string>
+    <string name="success">Ajout réussit</string>
+    <string name="picksexe">Pick sex</string>
+    <string name="nom">Last name</string>
+    <string name="prenom">First name</string>
+    <string name="error_field_login">Login already in use, choose another one.</string>
+    <string name="help_header_1">1. Modify medical file, appoinment or consultation</string>
+    <string name="help_header_2">2. Login or password forgotten</string>
+    <string name="help_header_3">3. Postpone or cancel appointments</string>
+    <string name="help_body_1">In order to modify your medical file, appointment or appointment , you\'ll to contact one of the administrators.
+    Future updates will allow you to make claim straight to  the concerned hospital.
+    </string>
+    <string name="help_body_2">Login and password are distributed by the administrator, if forgotten you should let him know</string>
+    <string name="help_body_3">To report or cancel an appointment, you need to notify your hospital first. On the other side, they too must notify you if
+    your appointment needs to be canceled.
+    </string>
+    <string name="home_head">Welcome and thanks for using Medicheck !!!!</string>
+    <string name="home_body">Medicheck is an app allowing you to manage efficiently your appointments and consultations in
+    our diverse hospitals partner.
+    </string>
 </resources>
