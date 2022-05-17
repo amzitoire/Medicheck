@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue_dark">#2c3178</color>
     <color name="blue_sky">#86b9de</color>
+
+    <color name="eggshell">#E6E1C5</color>
+    <color name="sage">#D4CB92</color>
+    <color name="deep_space">#395C6B</color>
+    <color name="little_boy_blue">#80A4ED</color>
+    <color name="light_steel_blue">#BCD3F2</color>
 </resources>

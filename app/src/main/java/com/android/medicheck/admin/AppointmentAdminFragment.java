@@ -31,7 +31,6 @@ import okhttp3.Response;
 
 public class AppointmentAdminFragment extends Fragment {
     private ListView listAppointment;
-    private Button btnAddAppointment;
     private ArrayList<String> tabAppointment = new ArrayList<String>();
 
     @Override
@@ -39,7 +38,6 @@ public class AppointmentAdminFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_appointment_admin, container, false);
-        btnAddAppointment = view.findViewById(R.id.btnAddAppointment);
         listAppointment = view.findViewById(R.id.listAppointmentAdmin);
         getAppointments();
         listAppointment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -63,12 +61,6 @@ public class AppointmentAdminFragment extends Fragment {
                    }
                });
                 dialog.show();
-            }
-        });
-        btnAddAppointment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_content_admin, new AddAppointmentFragment()).addToBackStack(null).commit();
             }
         });
         return view;

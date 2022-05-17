@@ -13,7 +13,9 @@
         android:gravity="center"
         android:text="@string/add_patient"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@color/teal_700"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/txtNom"
@@ -23,6 +25,7 @@
         android:hint="@string/nom"
         android:minHeight="48dp"
         android:autofillHints=""
+        android:textColorHint="@color/teal_700"
         android:inputType="text" />
 
     <EditText
@@ -33,6 +36,7 @@
         android:hint="@string/prenom"
         android:minHeight="48dp"
         android:autofillHints=""
+        android:textColorHint="@color/teal_700"
         android:inputType="text" />
 
     <EditText
@@ -43,6 +47,7 @@
         android:hint="@string/login"
         android:minHeight="48dp"
         android:autofillHints=""
+        android:textColorHint="@color/teal_700"
         android:inputType="text" />
 
     <EditText
@@ -53,12 +58,12 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:textColorHint="#757575"
+        android:textColorHint="@color/teal_700"
         android:autofillHints="" />
 
     <Button
         android:id="@+id/btnAddPatient"
-        android:backgroundTint="@color/blue_dark"
+        android:backgroundTint="@color/teal_700"
         android:layout_marginEnd="@dimen/right"
         android:layout_marginStart="@dimen/left"
         android:layout_marginTop="@dimen/top"

@@ -14,6 +14,8 @@
         android:layout_height="wrap_content"
         android:text="@string/add_medical_file"
         android:layout_marginBottom="5mm"
+        android:background="@color/teal_700"
+        android:textColor="@color/white"
         />
 
     <TextView
@@ -38,7 +40,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/all"
+        android:layout_margin="@dimen/all">
 
         <TextView
             android:id="@+id/txtSexe"
