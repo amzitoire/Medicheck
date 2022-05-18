@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private String password;
     public static String login;
     public static int id_user;
-    public final static String IPADRESS="192.168.1.11";
+    public final static String IPADRESS="192.168.1.12";
 
     public final String getIPADRESS(){
         return IPADRESS;

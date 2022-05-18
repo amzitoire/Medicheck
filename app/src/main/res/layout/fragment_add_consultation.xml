@@ -12,19 +12,24 @@
         android:textSize="24sp"
         android:layout_height="wrap_content"
         android:text="@string/add_consultation"
-        android:background="@color/teal_700"
-        android:textColor="@color/white"
+        android:textColor="@color/teal_700"
         android:layout_marginBottom="5mm"
+        android:layout_margin="@dimen/all"
         />
 
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/date"
+        android:text="@string/date_Naissance"
+        android:elevation="@dimen/top"
+        android:background="@android:drawable/btn_dropdown"
+        android:textColor="@color/black"
         android:gravity="center"
         android:layout_marginBottom="5mm"
         android:textSize="20sp"
+        android:layout_margin="@dimen/all"
+        android:padding="5dp"
         />
 
     <Spinner
@@ -32,7 +37,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"/>
+        android:spinnerMode="dropdown"
+        android:layout_margin="@dimen/all"
+        android:textAlignment="center"
+        />
 
     <EditText
         android:id="@+id/txtMotifConsultation"
@@ -40,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:layout_margin="@dimen/all"
         />
 
     <Button
@@ -47,6 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save"
+        android:layout_margin="@dimen/all"
         />
 
 </LinearLayout>

@@ -6,11 +6,34 @@
     android:orientation="vertical"
     tools:context=".admin.ConsultationAdminFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/list_consultation"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_margin="@dimen/all"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/consulation_press_admin"
+        android:gravity="center"
+        android:textSize="18sp"
+        />
 
     <ListView
         android:id="@+id/listConsultationAdmin"
         android:layout_marginTop="50dp"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:background="@color/eggshell"
+        android:dividerHeight="10dp"
+        android:divider="@color/white"
+        android:elevation="@dimen/top"
+        android:layout_margin="20dp"
+        android:paddingTop="10dp"/>
 
 </LinearLayout>

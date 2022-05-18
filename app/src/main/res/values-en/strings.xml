@@ -44,7 +44,7 @@
     <string name="day">Day</string>
     <string name="month">Month</string>
     <string name="year">Year</string>
-    <string name="success">Ajout réussit</string>
+    <string name="success">Added successfully</string>
     <string name="picksexe">Pick sex</string>
     <string name="nom">Last name</string>
     <string name="prenom">First name</string>
@@ -63,4 +63,12 @@
     <string name="home_body">Medicheck is an app allowing you to manage efficiently your appointments and consultations in
     our diverse hospitals partner.
     </string>
+    <string name="list_appointment">list Appointment</string>
+    <string name="list_consultation">list consultation</string>
+    <string name="press_for_more_details">press for more details</string>
+    <string name="consulation_press_admin">press to add Appointment or edit consultation</string>
+    <string name="appointment_press_admin">press to manage appointment</string>
+    <string name="inser_poids">Enter weight</string>
+    <string name="date_Naissance">"Select birthdate "</string>
+    <string name="Welcome">Welcome</string>
 </resources>

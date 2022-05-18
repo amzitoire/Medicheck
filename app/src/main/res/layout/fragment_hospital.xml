@@ -5,14 +5,16 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:textAlignment="center"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="hospital markers"
-        android:layout_marginBottom="@dimen/all"/>
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/all"
+        android:gravity="center"
+        android:text="Hospital markers"
+        android:textAlignment="center"
+        android:textColor="#00838F" />
 
-    <androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.fragment.app.FragmentContainerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_marginTop="48dp"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"

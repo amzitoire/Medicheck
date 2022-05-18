@@ -25,7 +25,9 @@
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/left"
         android:background="@color/teal_700"
-        android:scrollbarStyle="insideInset">
+        android:scrollbarStyle="insideInset"
+
+        android:elevation="@dimen/all">
 
     <TextView
         android:id="@+id/tvNom"

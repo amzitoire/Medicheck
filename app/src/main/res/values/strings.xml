@@ -52,14 +52,22 @@
     <string name="error_field_login">login deja utilisé. Veuillez changer de login.</string>
     <string name="help_header_1">1. Modifier son dossier médical, rendez-vous ou consultation</string>
     <string name="help_header_2">2. Login ou mot de passe oublié</string>
-    <string name="help_header_3">3. Report ou annulation des rendez-vous</string>
-    <string name="help_body_1">Afin de modifier son dossier , rendez-vous ou bien consultation , il est nécessaire de contacter l\'administrateur du système.
-    Des mises à jour futures vous permettront de faire vos réclamations directement au niveau de l'hopital concerné.
+    <string name="help_header_3">3.Report ou annulation des rendez-vous</string>
+    <string name="help_body_1">Afin de modifier son dossier , rendez-vous ou bien consultation , il est nécessaire de contacter l administrateur du système.
+    Des mises à jour futures vous permettront de faire vos réclamations directement au niveau de l hopital concerné.
     </string>
-    <string name="help_body_2">Votre login et votre mot de passe vous sont automatiquement attribués par l\'administrateur, en cas d'oubli veuillez donc le contacter</string>
-    <string name="help_body_3">En cas de report ou d\'annulation de votre rendez-vous, l\'hopital en charge sera chargé de vous notifier à l'aide d'un sms</string>
-    <string name="home_head">Bienvenue et merci d\' utiliser Medicheck !!!!</string>
+    <string name="help_body_2">Votre login et votre mot de passe vous sont automatiquement attribués par l administrateur, en cas d oubli veuillez donc le contacter</string>
+    <string name="help_body_3">En cas de report ou d annulation de votre rendez-vous, l hopital en charge sera chargé de vous notifier à l aide d un sms</string>
+    <string name="home_head">Bienvenue et merci d utiliser Medicheck !!!!</string>
     <string name="home_body">Medicheck est une appli vous permettant de gérer efficacement vos rendez-vous et consultations dans
     nos différents hopitaux partenaires.
     </string>
+    <string name="list_appointment">liste rendez_vous</string>
+    <string name="list_consultation">liste consultation</string>
+    <string name="press_for_more_details">press for more details</string>
+    <string name="consulation_press_admin">press to add Appointment or edit consultation</string>
+    <string name="appointment_press_admin">press to manage appointment</string>
+    <string name="inser_poids">Entrez le poids</string>
+    <string name="date_Naissance">"Selectionner date de naissance "</string>
+    <string name="Welcome">Bienvenue </string>
 </resources>

@@ -14,8 +14,10 @@
         android:text="@string/add_patient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_700"
-        android:textColor="@color/white"/>
+        android:textColor="@color/teal_700"
+        android:layout_margin="@dimen/all"
+
+        />
 
     <EditText
         android:id="@+id/txtNom"

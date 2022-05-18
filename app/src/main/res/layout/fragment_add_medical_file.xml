@@ -14,35 +14,44 @@
         android:layout_height="wrap_content"
         android:text="@string/add_medical_file"
         android:layout_marginBottom="5mm"
-        android:background="@color/teal_700"
-        android:textColor="@color/white"
+        android:textColor="@color/teal_700"
+        android:layout_margin="@dimen/all"
+
         />
 
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/date"
+        android:text="@string/date_Naissance"
+        android:elevation="@dimen/top"
+        android:background="@android:drawable/btn_dropdown"
+        android:textColor="@color/black"
         android:gravity="center"
         android:layout_marginBottom="5mm"
         android:textSize="20sp"
+        android:layout_margin="@dimen/all"
+        android:padding="5dp"
         />
 
     <EditText
         android:id="@+id/txtPoids"
-        android:hint="Entrez le poids"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
         android:layout_marginBottom="3mm"
-        />
+        android:textColor="@color/teal_700"
+        android:textColorHint="@color/teal_700"
+        android:hint="@string/inser_poids"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:layout_margin="@dimen/all"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/all"
-        android:layout_margin="@dimen/all">
+        android:layout_height="88dp"
+        android:layout_margin="@dimen/all"
+        android:padding="@dimen/all">
 
         <TextView
             android:id="@+id/txtSexe"
@@ -50,17 +59,28 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/picksexe"
+            android:textColor="@color/teal_700"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/listSexe"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/all"
+            android:background="@android:drawable/btn_dropdown"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.177"
             app:layout_constraintStart_toEndOf="@+id/txtSexe"
-            app:layout_constraintTop_toTopOf="@+id/txtSexe" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -68,6 +88,7 @@
         android:id="@+id/btnSaveDossier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/all"
         android:text="@string/save"
         />
 

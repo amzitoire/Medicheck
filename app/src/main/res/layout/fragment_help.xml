@@ -5,11 +5,24 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".commons.HelpFragment">
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/top"
+        android:backgroundTint="@color/ic_launcher_background"
+        android:src="@drawable/ic_help"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/top"
+        android:layout_marginTop="@dimen/top"
+        android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/help_header_1"
+        android:textColor="@color/teal_700"
         android:padding="5dp"
         android:textStyle="bold"
         />
@@ -27,6 +40,7 @@
         android:text="@string/help_header_2"
         android:padding="5dp"
         android:textStyle="bold"
+        android:textColor="@color/teal_700"
         />
 
     <TextView
@@ -42,6 +56,7 @@
         android:text="@string/help_header_3"
         android:padding="5dp"
         android:textStyle="bold"
+        android:textColor="@color/teal_700"
         />
 
     <TextView
@@ -50,4 +65,5 @@
         android:text="@string/help_body_3"
         android:padding="7dp"
         />
+    </LinearLayout>
 </LinearLayout>

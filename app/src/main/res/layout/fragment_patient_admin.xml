@@ -19,6 +19,11 @@
         android:id="@+id/listPatient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp" />
+        android:background="@color/white"
+        android:dividerHeight="10dp"
+        android:divider="@color/teal_700"
+        android:elevation="@dimen/top"
+        android:layout_margin="20dp"
+        android:paddingTop="10dp"/>
 
 </LinearLayout>

@@ -6,13 +6,19 @@
     android:orientation="vertical"
     android:padding="@dimen/all"
     tools:context=".MainActivity"
-    android:background="@color/eggshell">
+    android:background="@color/white">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:elevation="200dp"
+        android:src="@drawable/ic_launcher_round"/>
     <TextView
         android:textStyle="bold"
         android:textSize="@dimen/title"
         android:gravity="center"
-        android:text="@string/connection"
+        android:text="@string/Welcome"
+        android:fontFamily="cursive"
         android:textColor="@color/teal_700"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,8 +28,8 @@
         android:id="@+id/txtLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/top"
         android:hint="@string/login"
+        android:textColorHint="@color/teal_700"
         android:textColor="@color/teal_700"
         android:minHeight="48dp"
         android:autofillHints=""
@@ -39,7 +45,7 @@
         android:inputType="textPassword"
         android:textColor="@color/teal_700"
         android:minHeight="48dp"
-        android:textColorHint="#757575"
+        android:textColorHint="@color/teal_700"
         android:autofillHints=""
         android:layout_marginBottom="10dp"/>
 
